@@ -1,38 +1,906 @@
-.App {
-  text-align: center;
+/* styles.css */
+@font-face {
+  font-family: 'FairyRose';
+  src: url('../public/fonts/FairyRose.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'RainyHearts';
+  src: url('../public/fonts/RainyHearts.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+  font-family: 'SweetChocolate';
+  src: url('../public/fonts/SweetChocolate.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set the background color for the entire page */
+body {
+  background-color: #FFF9C4;
+  /* Pastel Yellow */
+  background-image:
+    linear-gradient(rgba(224, 193, 146, 0.509) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224, 193, 146, 0.509) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: top left;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'RainyHearts', sans-serif;
+  flex-direction: column;
+}
+
+/* Main container */
+.containerTop {
+  width: 50vw;  /* 55% of the viewport width */
+  background: linear-gradient(to right,  
+    #E25C7E 45%,  
+    #FFF9CA 75%,  
+    #79D2E0 100%  
+  ); 
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 24px;
+  position: relative;
+  margin-bottom: 0px; 
+  margin-top: 40px;
+}
+
+.containerTitle {
+  width: 50vw;  /* 55% of the viewport width */
+  height: 200px;
+  background-color: #ffdbe1;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 24px;
+  position: relative;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.logo {
+  max-width: 200%; /* Scale image to fit container width */
+  max-height: 300px; /* Limit the height of the logo */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+.containerNavbar {
+  width: 50vw;  /* 55% of the viewport width */
+  height: 35px;
+  background-color: white;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2.5px solid #E25C7E;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0px;
+}
+
+/* Style for buttons */
+.button {
+  position: absolute; /* Position buttons on top of the navbar */
+  top: 0;
+  background-color: #E25C7E; /* Pink background color */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  width: 65px;  /* Fixed width for the button */
+  height: 28px;
+  padding: 8px 0px; /* Padding inside buttons */
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 18px; /* Font size */
+  border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+  cursor: pointer; /* Make the cursor a pointer on hover */
+  transition: background-color 0.3s ease, height 0.3s ease, padding 0.3s ease; /* Smooth transition for hover color, height, and padding */
+  transform-origin: top; /* Keep the top of the button as the anchor point */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  z-index: 10; /* Make sure it appears above the next container */
+}
+
+.button:hover {
+  background-color: #79D2E0; /* Change to light blue on hover */
+  height: 38px; /* Increase the height of the button */
+  padding-top: 16px; /* Increase padding-top */
+  padding-bottom: 18px; /* Increase padding-bottom */
+  z-index: 20; /* Ensure it's on top when hovered */
+}
+
+/* Positioning for multiple buttons */
+.button:nth-child(1) {
+  left: 5px;
+}
+
+.button:nth-child(2) {
+  left: 75px; 
+}
+
+.button:nth-child(3) {
+  left: 145px; 
+}
+
+.button:nth-child(4) {
+  left: 215px;
+}
+
+.button:nth-child(5) {
+  left: 285px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Centers icons horizontally */
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.social-icons a {
+  color: #e25c7e;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #79d2e0;
+}
+
+.containerFlex {
+  z-index: 5; /* Lower z-index than buttons */
+  position: relative; /* Keeps navbar layout intact */
+  width: 50vw;
+  background-color: white;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-right: 2.5px solid #E25C7E;
+  border-left: 2.5px solid #E25C7E;
+  border-bottom: 2.5px solid #E25C7E;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+    
+  /* Start expanded for the home page */
+  max-height: 100%;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Hide other content sections by default */
+.content {
+  display: none;
+}
+
+/* Make the home content visible at the start */
+.content.active {
+  display: block;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Media query for mobile */
+@media (max-width: 768px) {
+  .containerTop, .containerTitle, .containerNavbar, .containerFlex {
+    width: 80vw;  /* 80% of the viewport width on mobile */
+    max-width: none;  /* Remove the max-width to allow containers to grow */
+  }
+
+  .containerTitle {
+    height: 200px;  /* Optional: increase height on mobile */
+  }
+}
+
+/*HOME CONTENT*/
+.home-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  justify-content: center;
+}
+
+.home-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+
+/* Left Column - Separate */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1; /* This makes the left column shrink */
+  max-width: 40%; /* Limit the width to give the right column more space */
+}
+
+.left-column h2 {
+  font-family: 'FairyRose', sans-serif;
+  font-size: 50px;
+  color: #e25c7e;
+  margin-bottom: 10px;
+  margin-top: 10px
+}
+
+.welcome-icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 18px;
+  color: #e25c7e;
+}
+
+.welcome-icon {
+  width: 30%;
+  background: #fff9c4;
+  padding: 10px 10px;
+  border-radius: 20px;
+  margin: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+@keyframes subtleBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Apply the bounce to the welcome icons */
+.welcome-icon:nth-child(1) {
+  animation: subtleBounce 2.5s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+.welcome-icon:nth-child(2) {
+  animation: subtleBounce 2.5s infinite ease-in-out;
+  animation-delay: 0.5s;
+}
+
+.welcome-icon:nth-child(3) {
+  animation: subtleBounce 2.5s infinite ease-in-out;
+  animation-delay: 1s;
+}
+
+.welcome-title {
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 36px;
+  color: #e25c7e;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.explore-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 12px; /* space between the buttons */
+}
+
+.explore-buttons button {
+  background-color: #e25c7e;
+  color: white;
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px; /* uniform button width */
+}
+
+.explore-buttons button:hover {
+  background-color: #79d2e0;
+}
+
+
+.arrow-icon {
+  display: inline-block;
+  transform: translateY(15px); /* Adjust the number for fine-tuning */
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.gif-style {
+  width: 200px; /* Adjust as needed */
+  border-radius: 0px; /* Optional: to round edges */
+  border-bottom: 2.5px solid #E25C7E;
+}
+
+.left-column-facts {
+  margin-bottom: 20px;
+}
+
+/* Merged Column - Extends to Main Container */
+.info-container {
+  position: relative;
+  display: flex; 
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  justify-content: center; /* center vertically */
+  padding: 10px;
+  background-color: #e7f9ff;
+  border-top: 2.5px dashed #5cd2e2;
+  border-left: 2.5px dashed #5cd2e2;
+  border-bottom: 2.5px dashed #5cd2e2;
+  border-radius: 10px 0 0 10px;
+  text-align: center; /* center text inside */
+  flex: 3; /* KEEP your original flex */
+  max-width: 70%; /* KEEP your original max-width */
+}
+
+/* Artwork Positioned in Text */
+.art-image-inline {
+  max-width: 175px; /* Adjust size as needed */
+  height: auto;
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  border-radius: 10px;
+}
+
+/* Text Styling */
+.info-container p {
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+  overflow: hidden; /* Ensures float is properly respected */
+  text-justify: inter-word; /* Makes spaces more evenly distributed */
+}
+
+.youtube-feed {
+  margin-top: 30px;
+  text-align: center;
+  background-color: #ffdbe1;
+  /* pastel yellow like your site */
+  border-top: 2.5px dashed #e25c7e;
+  /* pink border */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.youtube-title {
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 24px;
+  color: #e25c7e;
+  margin-bottom: 10px;
+}
+
+.youtube-player-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.youtube-player-container iframe {
+  border-radius: 20px;
+  border: 2px solid #79d2e0;
+  /* pastel blue frame */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .art-image-inline {
+    float: none;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+}
+
+/*PRICING*/
+.prices-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* <<< Remove padding */
+  margin: 0; /* <<< Remove margin */
+  padding-bottom: 0px;
+  width: 100%;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.down-arrow {
+  font-size: 20px;
+  margin-left: 5px;
+  position: relative;
+  top: -5px;
+  animation: bounceDown 1.5s infinite;
+}
+
+/* Cute little bounce for the down arrow */
+@keyframes bounceDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.jump-to-estimator {
+  width: 100%;
+  background-color: #e7f9ff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.jump-to-estimator a {
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 16px;
+  color: #e25c7e;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.jump-to-estimator a:hover {
+  color: #79d2e0;
+}
+
+.prices-image {
+  width: 100%; /* <<< FORCE full width */
+  height: 100%; /* <<< FORCE full height */
+  object-fit: cover; /* <<< This makes sure it fills without distortion */
+  border-radius: 0; /* <<< No rounding unless you want it */
+  display: block; /* <<< Removes inline spacing artifacts */
+  padding-bottom: 0px;
+  border-top: 2px solid #e25c7e;
+}
+
+.commission-calendar-container {
+  background-color: #e7f9ff; /* Soft blue background */
+  padding: 30px;
+  border-top: 0px solid #e25c7e;
+  border-radius: 16px 16px 16px 16px;
+  margin-top: 0px;
+  text-align: center;
+  padding: 20px 30px 10px 30px;
+}
+
+.calendar-title-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0px 0px 0 0;
+  border-top: 2px solid #e25c7e;
+  border-bottom: none; /* no border under */
+  margin-top: 0px; /* little space above */
+  text-align: center; /* center the text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commission-title {
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 36px;
+  color: #e25c7e;
+  margin: 0;
+}
+
+.calendar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-items: center;
+}
+
+.product-selection select, .date-label input[type="date"] {
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #e25c7e;
+  border-radius: 10px;
+  font-family: 'RainyHearts', sans-serif;
+}
+
+.date-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 18px;
+  color: #e25c7e;
+}
+
+.date-label input[type="date"] {
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #e25c7e;
+  /* pink border */
+  border-radius: 10px;
+  font-family: 'RainyHearts', sans-serif;
+  background-color: #fff9c4;
+  /* pastel yellow background */
+  color: #e25c7e;
+  /* pink text */
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* When the user clicks into the date picker */
+.date-label input[type="date"]:focus {
+  border-color: #79d2e0;
+  /* switch to pastel blue when focused */
+  background-color: #ffffff;
+  /* brighter background when focused */
+}
+
+/* Optional: When the user hovers over the date picker */
+.date-label input[type="date"]:hover {
+  border-color: #79d2e0;
+  /* pastel blue on hover too */
+}
+
+.remove-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #e25c7e;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-button:hover {
+  color: #79d2e0;
+}
+
+.add-button {
+  background-color: #e25c7e;
+  color: white;
+  font-family: 'SweetChocolate', sans-serif;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #79d2e0;
+}
+
+.estimated-price {
+  font-size: 24px;
+  font-family: 'SweetChocolate', sans-serif;
+  color: #e25c7e;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  
+}
+
+.price-breakdown {
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 16px;
+  color: #666;
+  text-align: left;
+  margin-top: 0px;
+  white-space: pre-wrap; /* Respect line breaks */
+  padding: 10px;
+  border: 2px dashed #e25c7e;
+  border-radius: 10px;
+  background-color: #fff9f9;
+}
+
+.cta-to-commission {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.commission-button {
+  background-color: #79d2e0;
+  color: #1d5f69;
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  text-decoration: none;  
+}
+
+.commission-button:hover {
+  background-color: #e25c7e;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes bounceButton {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Animation class */
+.bounce {
+  animation: bounceButton 1.5s infinite;
+}
+
+/* COMMISSION PAGE */
+.commission-container {
+  text-align: center;
+  padding: 30px;
+  animation: fadeIn 0.5s forwards; /* fade in like others */
+}
+
+.commission-form {
+  width: 100%;
+  height: 1900px;
+  border: 5px solid #79D2E0;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* optional soft glow */
+}
+
+/* Info Section */
+.commission-info {
+  text-align: center;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease forwards;
+}
+
+.commission-info h1 {
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 32px;
+  color: #e25c7e;
+  margin-bottom: 10px;
+}
+
+.commission-info p {
+  font-family: 'RainyHearts', sans-serif;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* GALLERY */
+.gallery-container {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.5s forwards;
+}
+
+.gallery-container h2 {
+  font-family: 'SweetChocolate', sans-serif;
+  font-size: 32px;
+  color: #e25c7e;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.gallery-image {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* POPUP OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: pointer;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* POPUP CONTENT */
+.popup-content {
+  position: relative;
+  animation: zoomIn 0.4s ease forwards;
+  cursor: default; /* So the cursor doesn't stay a pointer inside the popup */
+}
+
+/* FULL IMAGE */
+.popup-image {
+  max-width: 600px;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* CLOSE BUTTON */
+.close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #e25c7e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInButton 0.5s forwards 0.3s; /* fade in AFTER a small delay */
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #79d2e0;
+}
+
+.popup-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.arrow-button {
+  background-color: #e25c7e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInButton 0.5s forwards 0.3s; /* fade in AFTER a small delay */
+  transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover {
+  background-color: #79d2e0;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@media (max-width: 640px) {
+  .popup-image {
+    max-width: 90vw;
+  }
+}
+
