@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import React from "react";
 import artwithmkLogo from "./Images/artwithmkLogo.png";
-import artwork1 from "./Images/VinylSleeveMk.png";
 import myGif from './Images/PNG-Tuber-GIF.gif';
 import pricing from "./Images/artwithmkpricing.png";
 import art0 from "./Images/artwithmk0.png";
@@ -151,12 +150,20 @@ function App() {
           <button className="button" onClick={() => setActivePage("examples")}>gallery</button>
         </div>
 
-        <div className="social-icons">
+        <div className="social-icons desktop-icons">
           <a href="https://www.instagram.com/artwithmk/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
           <a href="https://www.youtube.com/@_artwithmk" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
           <a href="https://artwithmk.etsy.com" target="_blank" rel="noopener noreferrer"><FaEtsy /></a>
         </div>
       </div>
+
+      {/* New Div just for Mobile Socials */}
+      <div className="mobile-social-icons">
+        <a href="https://www.instagram.com/artwithmk/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+        <a href="https://www.youtube.com/@_artwithmk" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+        <a href="https://artwithmk.etsy.com" target="_blank" rel="noopener noreferrer"><FaEtsy /></a>
+      </div>
+
 
       <div className={`containerFlex ${activePage ? "expanded" : ""}`}>
         {activePage === "home" && (
