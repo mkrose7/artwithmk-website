@@ -144,7 +144,9 @@ function App() {
         className="containerTitle"
         style={{ backgroundImage: `url(${pixelArt})` }}
       >
-        <img src={artwithmkLogo} alt="Artwithmk Logo" className="logo" />
+        <div className="logo-wrapper">
+          <img src={artwithmkLogo} alt="Artwithmk Logo" className="logo" />
+        </div>
       </div>
 
 

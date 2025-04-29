@@ -89,6 +89,16 @@ body {
   object-fit: contain; /* Maintain aspect ratio */
 }
 
+.logo-wrapper {
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0px 0px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .containerNavbar {
   width: 50vw;  /* 55% of the viewport width */
   height: 35px;
