@@ -15,6 +15,8 @@ import art7 from "./Images/artwithmk7.png";
 import art8 from "./Images/artwithmk8.png";
 import art9 from "./Images/artwithmk9.png";
 import art10 from "./Images/artwithmk10.png";
+import pixelArt from './Images/Backgroundpixelart.png';
+
 import { FaInstagram, FaYoutube, FaEtsy } from "react-icons/fa";
 
 const images = [art0, art1, art2, art3, art4, art5, art6, art7, art8, art9, art10];
@@ -138,9 +140,14 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-pastel-yellow">
       <div className="containerTop"></div>
-      <div className="containerTitle">
+      <div
+        className="containerTitle"
+        style={{ backgroundImage: `url(${pixelArt})` }}
+      >
         <img src={artwithmkLogo} alt="Artwithmk Logo" className="logo" />
       </div>
+
+
 
       <div className="containerNavbar">
         <div className="nav-buttons">
