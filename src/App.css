@@ -391,6 +391,27 @@ body {
   animation-delay: 1s;
 }
 
+@media (max-width: 768px) {
+  .welcome-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+  .welcome-icon {
+    width: 90px;
+    /* make the icon a bit wider */
+    height: 90px;
+    /* make it more square */
+    font-size: 14px;
+    /* slightly smaller text inside */
+    padding: 8px;
+  }
+}
+
 .welcome-title {
   font-family: 'SweetChocolate', sans-serif;
   font-size: 36px;
